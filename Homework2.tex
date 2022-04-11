@@ -127,7 +127,7 @@ in Tasmania. (Fun fact:
 
 \begin{figure}
 \centering
-\includegraphics[width=1.58333in,height=\textheight]{https://cdn.shopify.com/s/files/1/1198/8002/products/1d89434927bffb6fd1786c19c2d921fb_2000x_652a2391-5a0a-4f10-966c-f759dc08635c_1024x1024.jpg?v=1582320404}
+\includegraphics[width=1.58333in,height=\textheight]{"abalone_pic.jpg"}
 \caption{\emph{Fig 1. Inside of an abalone shell.}}
 \end{figure}
 
@@ -405,13 +405,10 @@ Answer: The reproducible error terms are \(Var(\hat{f}(x_0))\) and
 Using the bias-variance tradeoff above, demonstrate that the expected
 test error is always at least as large as the irreducible error.
 
-\$\$ E{[}(y\_0 -
-\hat{f}(x\_0))\^{}2{]}=Var(\hat{f}(x\_0))+{[}Bias(\hat{f}(x\_0)){]}\^{}2+Var(\epsilon)\textbackslash{}
-
-=\mathrm{E}\left[\left(\hat{f}\left(\mathbf{x}_{0}\right)-\mathrm{E} \hat{f}\left(\mathbf{x}_{0}\right)\right)^{2}\right]+\left[\mathrm{E}\left[\hat{f}\left(\mathbf{x}_{0}\right)\right]-f\left(\mathbf{x}\_\{0\}\right)\right{]}\^{}\{2\}+\operatorname{Var}(\varepsilon)\textbackslash{}
-= 0+0 +Var(\epsilon)\textbackslash{} where: ~~~~~~E{[}(y\_0 -
-\hat{f}(x\_0))\^{}2{]}~= expected~test~error\textbackslash{}
-\{Var\}(\varepsilon) = irreducible~error \$\$
+\[
+E[(y_0 - \hat{f}(x_0))^2]=Var(\hat{f}(x_0))+[Bias(\hat{f}(x_0))]^2+Var(\epsilon)\\
+=\mathrm{E}\left[\left(\hat{f}\left(\mathbf{x}_{0}\right)-\mathrm{E} \hat{f}\left(\mathbf{x}_{0}\right)\right)^{2}\right]+\left[\mathrm{E}\left[\hat{f}\left(\mathbf{x}_{0}\right)\right]-f\left(\mathbf{x}_{0}\right)\right]^{2}+\operatorname{Var}(\varepsilon)\\ = 0+0 +Var(\epsilon)\\ where: \ \ \ \ \ \ E[(y_0 - \hat{f}(x_0))^2]\ = expected\ test\ error\\ {Var}(\varepsilon) = irreducible\ error 
+\]
 
 \hypertarget{question-10}{%
 \subsubsection{Question 10}\label{question-10}}
@@ -429,9 +426,16 @@ Hints:
   \(E[\hat{f}(x_0)]\)
 \end{itemize}
 
-\[
-E[(y_0 - \hat{f}(x_0))^2]=Var(\hat{f}(x_0))+[Bias(\hat{f}(x_0))]^2+Var(\epsilon)\\
-=\mathrm{E}\left[\left(\hat{f}\left(\mathbf{x}_{0}\right)-\mathrm{E} \hat{f}\left(\mathbf{x}_{0}\right)\right)^{2}\right]+\left[\mathrm{E}\left[\hat{f}\left(\mathbf{x}_{0}\right)\right]-f\left(\mathbf{x}_{0}\right)\right]^{2}+\operatorname{Var}(\varepsilon)\\ = 0 +Var(\epsilon)\\ {\Rightarrow}\ Var(\hat{f}(x_0))+[Bias(\hat{f}(x_0))]^2 =\ 0\\{\Rightarrow}\ Var(\hat{f}(x_0))=-[Bias(\hat{f}(x_0))]^2\\\ \\therefore,\\ [Bias(\hat{f}(x_0))]^2\ {\Uparrow}\ when\ Var(\hat{f}(x_0))\ {\Downarrow}\\ Var(\hat{f}(x_0))\ {\Uparrow}\ when\ [Bias(\hat{f}(x_0))]^2\ {\Downarrow}
-\]
+\$\$ E{[}(y\_0 -
+\hat{f}(x\_0))\^{}2{]}=Var(\hat{f}(x\_0))+{[}Bias(\hat{f}(x\_0)){]}\^{}2+Var(\epsilon)\textbackslash{}
+
+=\mathrm{E}\left[\left(\hat{f}\left(\mathbf{x}_{0}\right)-\mathrm{E}(\hat{f}\left(\mathbf{x}_{0}\right))\right)^{2}\right]+\left[\mathrm{E}\left[\hat{f}\left(\mathbf{x}_{0}\right)\right]-f\left(\mathbf{x}\_\{0\}\right)\right{]}\^{}\{2\}+\operatorname{Var}(\varepsilon)\textbackslash{}
+= 0 +Var(\epsilon)\textbackslash{}
+\Rightarrow~Var(\hat{f}(x\_0))+{[}Bias(\hat{f}(x\_0)){]}\^{}2
+=~0\textbackslash{}\Rightarrow~Var(\hat{f}(x\_0))=-{[}Bias(\hat{f}(x\_0)){]}\^{}2
+\textbackslash therefore,\textbackslash{}
+{[}Bias(\hat{f}(x\_0)){]}\^{}2~\Uparrow~when~Var(\hat{f}(x\_0))~\{\Downarrow\}\textbackslash{}
+Var(\hat{f}(x\_0))~\Uparrow~when~{[}Bias(\hat{f}(x\_0)){]}\^{}2~\Downarrow
+\$\$
 
 \end{document}

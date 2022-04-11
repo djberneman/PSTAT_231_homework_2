@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.4.4)  11 APR 2022 12:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.4.4)  11 APR 2022 15:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -419,25 +419,46 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <7> on input line 123.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 123.
+<abalone_pic.jpg, id=6, 1027.84pt x 1027.84pt>
+File: abalone_pic.jpg Graphic file (type jpg)
+<use abalone_pic.jpg>
+Package pdftex.def Info: abalone_pic.jpg  used on input line 130.
+(pdftex.def)             Requested size: 114.42722pt x 114.42722pt.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 141.
+(c:/Users/Dylan/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+) [1
 
-LaTeX Warning: File `https://cdn.shopify.com/s/files/1/1198/8002/products/1d89434927bffb6fd1786c19c2d921fb_2000x_652a2391-5a0a-4f10-966c-f759dc08635c_1024x1024.jpg?v=1582320404' not found on input line 130.
+{c:/Users/Dylan/AppData/Roaming/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./abalone_pic.jpg>]
+LaTeX Font Info:    Trying to load font information for TS1+lmtt on input line 178.
+(c:/Users/Dylan/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmtt.fd
+File: ts1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 218.
+(c:/Users/Dylan/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
+File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+) [2] [3]
+Overfull \hbox (430.16237pt too wide) detected at line 411
+\OML/lmm/m/it/10 E\OT1/lmr/m/n/10 [(\OML/lmm/m/it/10 y[] \OMS/lmsy/m/n/10 ^^@ []\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x[]\OT1/lmr/m/n/10 ))[]] = \OML/lmm/m/it/10 Var\OT1/lmr/m/n/10 ([](\OML/lmm/m/it/10 x[]\OT1/lmr/m/n/10 )) + [\OML/lmm/m/it/10 Bias\OT1/lmr/m/n/10 ([](\OML/lmm/m/it/10 x[]\OT1/lmr/m/n/10 ))][] + \OML/lmm/m/it/10 Var\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 ^^O\OT1/lmr/m/n/10 )[]  = E [] + [][] + [](\OML/lmm/m/it/10 "\OT1/lmr/m/n/10 )[]  = 0 + 0 + \OML/lmm/m/it/10 Var\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 ^^O\OT1/lmr/m/n/10 )[] \OML/lmm/m/it/10 where \OT1/lmr/m/n/10 :       \OML/lmm/m/it/10 E\OT1/lmr/m/n/10 [(\OML/lmm/m/it/10 y[] \OMS/lmsy/m/n/10 ^^@ []\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 x[]\OT1/lmr/m/n/10 ))[]]  = \OML/lmm/m/it/10 expected test error[] []\OT1/lmr/m/n/10 (\OML/lmm/m/it/10 "\OT1/lmr/m/n/10 ) = \OML/lmm/m/it/10 irreducible error
+ []
 
+[4]
 
-! LaTeX Error: Unknown graphics extension: .jpg?v=1582320404.
+! Package amsmath Error: \hat allowed only in math mode.
 
-See the LaTeX manual or LaTeX Companion for explanation.
+See the amsmath package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.130 ...-f759dc08635c_1024x1024.jpg?v=1582320404}
-                                                   
+l.430 \hat{f}
+             (x\_0))\^{}2{]}=Var(\hat{f}(x\_0))+{[}Bias(\hat{f}(x\_0)){]}\^{... 
 Here is how much of TeX's memory you used:
- 10899 strings out of 480228
- 175496 string characters out of 5893579
- 450833 words of memory out of 5000000
- 28678 multiletter control sequences out of 15000+600000
- 511549 words of font info for 65 fonts, out of 8000000 for 9000
+ 11029 strings out of 480228
+ 173200 string characters out of 5893579
+ 466833 words of memory out of 5000000
+ 28764 multiletter control sequences out of 15000+600000
+ 532885 words of font info for 74 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 60i,6n,63p,399b,288s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 60i,6n,63p,426b,466s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 !  ==> Fatal error occurred, no output PDF file produced!
