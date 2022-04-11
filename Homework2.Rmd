@@ -6,6 +6,7 @@ output:
     toc: true
     toc_float: true
     latex_engine: 'pdflatex'
+    keep_md: true
 ---
 
 ```{r setup, include=FALSE}
