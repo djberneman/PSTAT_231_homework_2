@@ -7,8 +7,6 @@ output:
     toc_float: yes
     code_folding: show
     keep_md: yes
-  pdf_document:
-    toc: yes
 ---
 
 
