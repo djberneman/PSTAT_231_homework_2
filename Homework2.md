@@ -9,10 +9,7 @@ output:
       keep_md: true
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, message = FALSE,
-                      warning = FALSE)
-```
+
 
 ## Linear Regression
 
@@ -25,20 +22,32 @@ The age of an abalone is typically determined by cutting the shell open and coun
 The full abalone data set is located in the `\data` subdirectory. Read it into *R* using `read_csv()`. Take a moment to read through the codebook (`abalone_codebook.txt`) and familiarize yourself with the variable definitions.
 
 Make sure you load the `tidyverse` and `tidymodels`!
-```{r include=FALSE}
-library(tidyverse)
-library(tidymodels)
-library(readr)
-abalone <- read_csv("abalone.csv")
-```
+
 
 ### Question 1
 
 Your goal is to predict abalone age, which is calculated as the number of rings plus 1.5. Notice there currently is no `age` variable in the data set. Add `age` to the data set.
 
 Assess and describe the distribution of `age`.
-```{r}
+
+```r
 head(abalone)
+```
+
+```
+## # A tibble: 6 x 9
+##   type  longest_shell diameter height whole_weight shucked_weight viscera_weight
+##   <chr>         <dbl>    <dbl>  <dbl>        <dbl>          <dbl>          <dbl>
+## 1 M             0.455    0.365  0.095        0.514         0.224          0.101 
+## 2 M             0.35     0.265  0.09         0.226         0.0995         0.0485
+## 3 F             0.53     0.42   0.135        0.677         0.256          0.142 
+## 4 M             0.44     0.365  0.125        0.516         0.216          0.114 
+## 5 I             0.33     0.255  0.08         0.205         0.0895         0.0395
+## 6 I             0.425    0.3    0.095        0.352         0.141          0.0775
+## # ... with 2 more variables: shell_weight <dbl>, rings <dbl>
+```
+
+```r
 abalone['age'] = abalone['rings'] + 1.5
 ```
 
@@ -46,7 +55,8 @@ abalone['age'] = abalone['rings'] + 1.5
 
 Split the abalone data into a training set and a testing set. Use stratified sampling. You should decide on appropriate percentages for splitting the data.
 
-```{r}
+
+```r
 set.seed(91362)
 abalone_split <- initial_split(abalone, prop = 0.80, strata = 'age')
 abalone_train <- training(abalone_split)
@@ -70,7 +80,8 @@ Steps for your recipe:
 4.  scale all predictors.
 
 You'll need to investigate the `tidymodels` documentation to find the appropriate step functions to use.
-```{r}
+
+```r
 simple_abalone_recipe <- recipe(age ~ type + longest_shell + diameter + height + whole_weight 
                                 + shucked_weight + viscera_weight + shell_weight, data = abalone_train)
 abalone_recipe <- recipe(age ~ type + longest_shell + diameter + height + whole_weight + shucked_weight
@@ -87,7 +98,8 @@ You shouldn't use `rings` to predict `age` because `age` is already a function o
 ### Question 4
 
 Create and store a linear regression object using the `"lm"` engine.
-```{r}
+
+```r
 lm_model <- linear_reg() %>% set_engine("lm")
 ```
 
@@ -100,7 +112,8 @@ Now:
 2.  add the model you created in Question 4, and
 
 3.  add the recipe that you created in Question 3.
-```{r}
+
+```r
 lm_wflow <- workflow()
 lm_wflow <- lm_wflow %>% add_model(lm_model)
 lm_wflow <- lm_wflow %>% add_recipe(abalone_recipe)
@@ -109,30 +122,60 @@ lm_wflow <- lm_wflow %>% add_recipe(abalone_recipe)
 ### Question 6
 
 Use your `fit()` object to predict the age of a hypothetical female abalone with longest_shell = 0.50, diameter = 0.10, height = 0.30, whole_weight = 4, shucked_weight = 1, viscera_weight = 2, shell_weight = 1.
-```{r}
+
+```r
 lm_fit <- fit(lm_wflow, abalone_train)
 fem_abalone <- data.frame(type = 'F', longest_shell = 0.50, diameter = 0.10, height = 0.30, 
                           whole_weight = 4, shucked_weight = 1, viscera_weight = 2, shell_weight = 1)
 predict(lm_fit, fem_abalone)
 ```
 
+```
+## # A tibble: 1 x 1
+##   .pred
+##   <dbl>
+## 1  23.8
+```
+
 ### Question 7
 
 Now you want to assess your model's performance. To do this, use the `yardstick` package:
-```{r include=FALSE}
-installed.packages('yardstick')
-library(yardstick)
-```
+
 
 1.  Create a metric set that includes *R^2^*, RMSE (root mean squared error), and MAE (mean absolute error).
 2.  Use `predict()` and `bind_cols()` to create a tibble of your model's predicted values from the **training data** along with the actual observed ages (these are needed to assess your model's performance).
 3.  Finally, apply your metric set to the tibble, report the results, and interpret the *R^2^* value.
-```{r}
+
+```r
 abalone_metrics <- metric_set(rmse, rsq, mae)
 abalone_train_res <- predict(lm_fit, new_data = abalone_train %>% select(-age))
 abalone_train_res <- bind_cols(abalone_train_res, abalone_train %>% select(age))
 head(abalone_train_res)
+```
+
+```
+## # A tibble: 6 x 2
+##   .pred   age
+##   <dbl> <dbl>
+## 1  9.46   8.5
+## 2  7.99   8.5
+## 3  9.36   9.5
+## 4  9.62   8.5
+## 5 10.3    8.5
+## 6 10.0    9.5
+```
+
+```r
 abalone_metrics(abalone_train_res, truth = age, estimate = .pred)
+```
+
+```
+## # A tibble: 3 x 3
+##   .metric .estimator .estimate
+##   <chr>   <chr>          <dbl>
+## 1 rmse    standard       2.13 
+## 2 rsq     standard       0.561
+## 3 mae     standard       1.53
 ```
 
 ### Required for 231 Students
