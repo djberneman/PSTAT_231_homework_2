@@ -2,11 +2,13 @@
 title: "PSTAT 231 Homework 2"
 author: "Dylan Berneman"
 output:
-    html_document:
-      toc: true
-      toc_float: true
-      code_folding: show
-      keep_md: true
+  html_document:
+    toc: yes
+    toc_float: yes
+    code_folding: show
+    keep_md: yes
+  pdf_document:
+    toc: yes
 ---
 
 
